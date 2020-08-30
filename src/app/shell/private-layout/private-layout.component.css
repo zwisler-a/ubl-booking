@@ -30,7 +30,7 @@
 }
 .footer-image {
   z-index: 0;
-  background-image: url(/assets/footer.svg);
+  background-image: url(../../../assets/footer.svg);
   height: 70vh;
   background-repeat: no-repeat;
   position: fixed;

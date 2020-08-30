@@ -21,7 +21,7 @@
 .border-content {
   z-index: 1;
   position: relative;
-  background: url(/assets/login_background.jpg);
+  background: url(../../../assets/login_background.jpg);
   background-size: auto 100%;
   background-repeat: no-repeat;
   background-position-x: right;
@@ -54,7 +54,7 @@
 }
 .border {
   z-index: 2;
-  background: url(/assets/login_border.svg);
+  background: url("../../../assets/login_border.svg");
   position: fixed;
   bottom: 0;
   right: 0;
