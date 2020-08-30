@@ -5,7 +5,9 @@
     "ng": "ng",
     "start": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build --prod",
+    "gh-pages": "npm run gh-pages:build && npm run gh-pages:cp-index",
     "gh-pages:build": "ng build --configuration=gh-pages --base-href /ubl-booking/",
+    "gh-pages:cp-index": "cp ./dist/ubl-booking/index.html ./dist/ubl-booking/404.html",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

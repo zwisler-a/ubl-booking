@@ -23,9 +23,9 @@
     <app-area-select [control]="bookingFormGroup.get('area')" [areas]="bookingInfo.areas"></app-area-select>
     <app-accessories-select [control]="bookingFormGroup.get('fitting')"></app-accessories-select>
     <app-date-select [control]="bookingFormGroup.get('from_date')"></app-date-select>
-    <app-capacity-view
-      [capacity]="bookingInfo.capacity[capacityForDay]"
-      [startHour]="bookingInfo.capacity['startHour']"
+    <app-capacity-view *ngIf="capacity$ | async as capacity"
+      [capacity]="capacity[capacityForDay]"
+      [startHour]="capacity['startHour']"
       [title]="'Auslastung (' + (bookingFormGroup.get('from_date').value | date: 'dd.MM') + ')'"
     ></app-capacity-view>
     <app-timespan-select

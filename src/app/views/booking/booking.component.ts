@@ -23,6 +23,7 @@ import { WorkloadService } from '../../service/workload/workload.service';
 export class BookingComponent implements OnInit {
   institutions$;
   bookingInfo$: Observable<{ areas: string[]; timeslots: Timeslot }>;
+  capacity$: Observable<any>;
 
   state: string;
 
@@ -66,11 +67,12 @@ export class BookingComponent implements OnInit {
   async institutionSelected(value: string): Promise<any> {
     this.prefService.getPreferedSeat(value, this.bookingFormGroup);
     this.prefService.setPreferedInstitution(value);
+
+    this.capacity$ = this.workloadService.getWorkload(value);
     this.bookingInfo$ = combineLatest([
       this.institutionService.getTimesolts(value),
       this.institutionService.getAreas(value),
-      this.workloadService.getWorkload(value),
-    ]).pipe(map(([timeslots, areas, capacity]) => ({ areas, timeslots, capacity })));
+    ]).pipe(map(([timeslots, areas]) => ({ areas, timeslots })));
   }
 
   @LogMethodCall()
