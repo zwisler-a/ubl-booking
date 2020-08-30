@@ -1,0 +1,51 @@
+.wrapper {
+  margin-bottom: 32px;
+  border-bottom: solid 1px #8b8b8b;
+}
+:host {
+  height: 74px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+}
+.label {
+  position: absolute;
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 12px;
+  font-weight: 400;
+  top: 0;
+}
+.capacity {
+  display: block;
+  flex: 1 1 auto;
+  margin: 0 1px;
+  position: relative;
+  justify-content: center;
+  display: flex;
+}
+.hour {
+  position: absolute;
+  bottom: -18px;
+  font-size: 0.6rem;
+}
+.hour-small {
+  transform: rotate(45deg);
+  white-space: nowrap;
+  bottom: -27px;
+  margin-left: 10px;
+}
+.capacity-0 {
+  height: 2px;
+  background: rgba(216, 65, 62, 0.2);
+}
+
+.capacity-1 {
+  height: 10px;
+  background: rgba(216, 65, 62, 0.5);
+}
+
+.capacity-2 {
+  height: 20px;
+  background: rgb(176, 47, 44);
+}

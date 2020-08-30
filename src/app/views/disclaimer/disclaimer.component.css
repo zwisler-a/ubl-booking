@@ -1,0 +1,7 @@
+a {
+  color: blue;
+}
+* {
+  position: relative;
+  z-index: 100;
+}

@@ -1,0 +1,11 @@
+<mat-form-field fxFlex>
+  <mat-label>Bereich</mat-label>
+  <mat-select [formControl]="control">
+    <mat-option [value]="'no selection'">
+      Alle Bereiche
+    </mat-option>
+    <mat-option *ngFor="let area of areas" [value]="area">
+      {{ area }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

@@ -1,0 +1,14 @@
+<form [formGroup]="cancelationFormGroup" fxLayout="column" (submit)="cancel()">
+  <mat-form-field>
+    <input matInput formControlName="code" placeholder="Buchungscode" />
+  </mat-form-field>
+  <div fxLayout="row" fxLayoutAlign="end center">
+    <app-loading-button
+      (click)="cancel()"
+      [disabled]="cancelationFormGroup.invalid"
+      [loading]="cancelationInProgress"
+    >
+      Stornieren
+    </app-loading-button>
+  </div>
+</form>

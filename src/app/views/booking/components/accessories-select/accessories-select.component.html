@@ -1,0 +1,14 @@
+<mat-form-field fxFlex>
+  <mat-label>Ausstattung</mat-label>
+  <mat-select
+    multiple
+    [formControl]="control"
+  >
+    <mat-option
+      *ngFor="let accessorie of accessories | keyvalue"
+      [value]="accessorie.key"
+    >
+      {{ accessorie.value }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

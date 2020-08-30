@@ -1,0 +1,8 @@
+<div fxLayout="row" fxLayoutAlign="start baseline" class="wrapper">
+  <label class="label" [innerHTML]="title"></label>
+  <ng-container *ngFor="let hour of capacity; let i = index;">
+    <span [ngClass]="['capacity-' + hour, 'capacity']">
+      <span class="hour" ngClass.lt-sm="hour-small">{{ i | capacityTime: startHour }}</span>
+    </span>
+  </ng-container>
+</div>

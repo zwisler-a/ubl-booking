@@ -1,0 +1,55 @@
+<form class="booking-form" fxLayout="column" [formGroup]="bookingFormGroup">
+  <app-institution-select
+    [institutions]="institutions$ | async"
+    formControlName="institution"
+  ></app-institution-select>
+
+  <ng-container *ngIf="!isInstitutionSelected" [ngTemplateOutlet]="pleaseSelectHint"></ng-container>
+  <ng-container
+    *ngIf="isInstitutionSelected && bookingInfo$ | async as bookingInfo; else loading"
+    [ngTemplateOutlet]="seatSelect"
+    [ngTemplateOutletContext]="{
+      bookingInfo: bookingInfo
+    }"
+  ></ng-container>
+</form>
+
+<!-- Seat selection -->
+<ng-template #seatSelect let-bookingInfo="bookingInfo">
+  <div [formGroup]="bookingFormGroup" fxLayout="column" fxLayoutGap="0px">
+    <app-opening-hours [intervals]="bookingInfo.timeslots.interval"></app-opening-hours>
+    <br />
+    <br />
+    <app-area-select [control]="bookingFormGroup.get('area')" [areas]="bookingInfo.areas"></app-area-select>
+    <app-accessories-select [control]="bookingFormGroup.get('fitting')"></app-accessories-select>
+    <app-date-select [control]="bookingFormGroup.get('from_date')"></app-date-select>
+    <app-capacity-view
+      [capacity]="bookingInfo.capacity[capacityForDay]"
+      [startHour]="bookingInfo.capacity['startHour']"
+      [title]="'Auslastung (' + (bookingFormGroup.get('from_date').value | date: 'dd.MM') + ')'"
+    ></app-capacity-view>
+    <app-timespan-select
+      [controlFrom]="bookingFormGroup.get('from_time')"
+      [controlTo]="bookingFormGroup.get('until_time')"
+    ></app-timespan-select>
+    <div fxLayout="row" fxLayoutAlign="end center">
+      <app-loading-button
+        (click)="bookingFormGroup.markAllAsTouched(); bookingFormGroup.valid && book()"
+        [loading]="inBookingProcess"
+      >
+        Buchen
+      </app-loading-button>
+    </div>
+  </div>
+</ng-template>
+
+<!-- Loading animation -->
+<ng-template #loading>
+  <div>
+    <bullet-list-content-loader *ngIf="isInstitutionSelected"></bullet-list-content-loader>
+  </div>
+</ng-template>
+<!-- Nothing selected hint -->
+<ng-template #pleaseSelectHint>
+  <p>Bitte wähle einen Standort</p>
+</ng-template>

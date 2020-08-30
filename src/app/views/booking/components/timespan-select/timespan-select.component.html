@@ -1,0 +1,10 @@
+<div fxLayout="row" fxLayoutGap="16px" fxLayout.lt-sm="column" fxLayoutGap.lt-sm="0px" fxFlex>
+  <mat-form-field fxFlex>
+    <input placeholder="Von" matInput type="time" [formControl]="controlFrom"  required/>
+    <mat-error *ngIf="controlTo.hasError('required')">Start-Zeitpunkt ist benötigt</mat-error>
+  </mat-form-field>
+  <mat-form-field fxFlex>
+    <input placeholder="Bis" matInput type="time" [formControl]="controlTo"  required/>
+    <mat-error *ngIf="controlTo.hasError('required')">End-Zeitpunkt ist benötigt</mat-error>
+  </mat-form-field>
+</div>

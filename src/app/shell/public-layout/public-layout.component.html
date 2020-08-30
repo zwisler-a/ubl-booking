@@ -1,0 +1,25 @@
+<mat-card
+  [fxFlex]="'0 0 ' + width + 'px'"
+  fxFlex.lt-sm="1 1 auto"
+  class="public-card"
+  fxLayout="column"
+  fxLayoutAlign="start stretch"
+>
+  <router-outlet></router-outlet>
+</mat-card>
+<div class="border" ngClass.lt-sm="border-handset"></div>
+<div fxHide.lt-sm fxFlex="1 1 auto" class="border-content" fxLayoutAlign="center center">
+  <div class="border-content__text">
+    <h1 fxHide.lt-md></h1>
+  </div>
+
+  <span class="image-attribution">
+    <mat-icon>help_outline</mat-icon>
+    <a
+      href="https://commons.wikimedia.org/wiki/File:Universit%C3%A4t_Leipzig_-_Neues_Augusteum_(Juli_2012)_02.JPG"
+      title="via Wikimedia Commons"
+      >Wilhelm Thomas Fiege</a
+    >
+    / <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA</a>
+  </span>
+</div>

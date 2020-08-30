@@ -1,0 +1,13 @@
+.back-button {
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  min-width: unset;
+  line-height: unset;
+  position: absolute;
+  right: 16px;
+}
+
+table {
+  width: 100%;
+}

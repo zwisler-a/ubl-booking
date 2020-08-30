@@ -1,0 +1,34 @@
+<form
+  [formGroup]="loginFormGroup"
+  fxLayout="column"
+  method="POST"
+  action="login"
+  (submit)="login()"
+>
+  <h2>Anmeldung</h2>
+  <mat-form-field>
+    <input
+      formControlName="readerNumber"
+      autocomplete="username"
+      name="username"
+      matInput
+      placeholder="Lesernummer"
+    />
+  </mat-form-field>
+  <mat-form-field>
+    <input
+      formControlName="password"
+      autocomplete="current-password"
+      type="password"
+      name="password"
+      matInput
+      placeholder="Passwort"
+    />
+  </mat-form-field>
+  <app-loading-button
+    [disabled]="loginFormGroup.invalid"
+    [loading]="inLoginProcess"
+  >
+    Login
+  </app-loading-button>
+</form>

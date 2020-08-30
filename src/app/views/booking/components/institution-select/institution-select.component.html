@@ -1,0 +1,13 @@
+<mat-form-field fxFlex>
+  <mat-label>Standort</mat-label>
+  <mat-select
+    #institutionSelect
+    [(ngModel)]="selectedInstitution"
+    [disabled]="isDisabled"
+    required
+  >
+    <mat-option *ngFor="let institution of institutions" [value]="institution">
+      {{ institution }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

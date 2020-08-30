@@ -1,0 +1,7 @@
+{
+  "/api": {
+    "target": "https://seats.ub.uni-leipzig.de/",
+    "secure": true,
+    "changeOrigin": true
+  }
+}

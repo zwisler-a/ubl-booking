@@ -1,0 +1,50 @@
+<button mat-button class="back-button" [routerLink]="bookingListRoute">
+  <mat-icon>close</mat-icon>
+</button>
+<table *ngIf="booking$ | async as booking">
+  <!--  <tr>
+    <td colspan="2">
+      Die Bestätigungsmail wurde an "{{ booking.email }}" gesendet
+    </td>
+  </tr>-->
+  <br />
+  <tr>
+    <td>Arbeitsplatz:</td>
+    <td>{{ booking.workspaceId }}</td>
+  </tr>
+  <br />
+  <tr>
+    <td>Standort:</td>
+    <td>{{ booking.config.institution }}</td>
+  </tr>
+  <tr>
+    <td>Bereich:</td>
+    <td>{{ booking.config.area | areaSanitation }} Platz {{ booking.workspaceId }}</td>
+  </tr>
+  <tr>
+    <td>Zeit:</td>
+    <td>{{ booking.config.from_time }} - {{ booking.config.until_time }}</td>
+  </tr>
+  <tr>
+    <td>Tag:</td>
+    <td>{{ booking.config.from_date | dayString }}</td>
+  </tr>
+  <br />
+  <tr>
+    <td>Buchungs-nummer:</td>
+    <td>{{ booking.bookingCode }}</td>
+  </tr>
+  <br />
+  <tr>
+    <td colspan="2">
+      <div fxLayout="row" fxLayoutAlign="end center">
+        <app-loading-button
+          (click)="cancelBooking(booking.bookingCode)"
+          [loading]="cancelationInProgress"
+        >
+          Stornieren
+        </app-loading-button>
+      </div>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,53 @@
+<div fxLayout="column" fxLayoutAlign="start stretch" fxFlexFill>
+  <nav fxLayout="row" fxLayoutAlign="end" class="navigation">
+    <div class="titlebar" fxFlex="1 1 auto" fxLayoutAlign="start center">
+      <span >Buchungssystem</span>
+    </div>
+    <div
+      class="navigation-item"
+      routerLinkActive="active"
+      [routerLink]="routes.BOOKING"
+    >
+      <span>Buchen</span>
+      <mat-icon>book</mat-icon>
+    </div>
+    <div
+      *ngIf="hasBookingManagement"
+      class="navigation-item"
+      routerLinkActive="active"
+      [routerLink]="routes.BOOKING_LIST"
+    >
+      <span>Buchungen</span>
+      <mat-icon>bookmarks</mat-icon>
+    </div>
+    <div class="navigation-item" appUserPopup>
+      <span>Benutzer</span>
+      <mat-icon>account_box</mat-icon>
+    </div>
+  </nav>
+  <main fxFlex="1 1 auto" class="flex-shell">
+    <h1 fxHide.lt-sm *ngIf="title" class="title" fxLayout="row" fxLayoutAlign="start center">
+      <ng-container *ngFor="let titlePart of title; let i = index" >
+        <mat-icon [@rotateInOut]>chevron_right</mat-icon>
+        <span [@rotateInOut] (click)="navigateUp(title.length - i - 1)">{{ titlePart }}</span>
+      </ng-container>
+    </h1>
+    <mat-card class="shell">
+      <router-outlet></router-outlet>
+    </mat-card>
+  </main>
+  <footer class="footer" fxLayout="row" fxLayoutAlign="start center">
+    <a href="https://www.ub.uni-leipzig.de/sitemaprechtliches/impressum/"
+      >Impressum</a
+    >
+    <a href="https://www.ub.uni-leipzig.de/sitemaprechtliches/privacy/"
+      >Datenschutz</a
+    >
+    <a href="https://www.ub.uni-leipzig.de/sitemaprechtliches/kontakt/"
+      >Kontakt</a
+    >
+
+    <span fxFlex="1 1 auto"></span> <span>{{ version }}</span>
+  </footer>
+</div>
+<div class="footer-image"></div>

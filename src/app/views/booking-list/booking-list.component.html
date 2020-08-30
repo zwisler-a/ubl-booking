@@ -1,0 +1,30 @@
+<mat-list role="list" *ngIf="bookings.length; else noBookings">
+  <a
+    mat-list-item
+    *ngFor="let booking of bookings"
+    role="listitem"
+    [routerLink]="getLink(booking.bookingCode)"
+  >
+    <div fxLayout="row" fxFlex fxLayoutGap="16px" fxLayoutAlign="start center" style="width: 100%;">
+      <span fxFlex="1 1 auto" style="overflow: hidden; white-space: break-spaces; ">
+        <span style="white-space: nowrap;overflow: hidden;">{{ booking.config.institution }}: </span>
+        <span style="white-space: nowrap;">{{
+          booking.config.area | areaSanitation: booking.workspaceId
+        }}</span>
+      </span>
+      <span fxFlex="0 0 auto"> {{ booking.config.from_time }} - {{ booking.config.until_time }} </span>
+      <span  fxFlex="0 0 auto"> {{ booking.config.from_date | dayString }}</span>
+    </div>
+  </a>
+</mat-list>
+<ng-template #noBookings>
+  Keine Buchungen gefunden
+</ng-template>
+
+<br />
+<br />
+<div fxLayout="row" fxLayoutAlign="end center">
+  <app-loading-button [routerLink]="cancelationRoute">
+    Mit Buchungscode Stornieren
+  </app-loading-button>
+</div>

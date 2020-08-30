@@ -1,0 +1,9 @@
+:host {
+  background: #262a31;
+  border-top: solid 1px white;
+  color: white;
+  padding: 16px;
+}
+.readerNumber {
+  white-space: nowrap;
+}
