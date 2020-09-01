@@ -44,7 +44,7 @@ export class ErrorService {
         {
           '': 'Es konnte kein Arbeitsplatz zu diesen Bedingungen gefunden werden',
           concurrently_booking: 'Sie haben breits einen Arbeitsplatz zu dieser Zeit',
-          server_error: 'Unbekannter Fehler',
+          server_error: 'Unbekannter Fehler (Versuchen Sie sich ab und wieder anzumelden)',
           outofreach: 'Sie können nur innerhalb der nächsten 7 Tage buchen!',
           outofdate: 'Der Buchungszeitrum ist außerhalb der Öffnungszeiten',
           notbookable2: 'Die Bibliothek ist vom 03.08 bis 14.08. geschlossen!',
