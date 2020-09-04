@@ -10,8 +10,7 @@ import { ROUTE } from '../../routing/routes.enum';
   providedIn: 'root',
 })
 export class AuthService {
-  private readonly loginApiUrl =
-    environment.api.basePath + environment.api.login;
+  private readonly loginApiUrl = environment.api.basePath + environment.api.login;
 
   private loginToken: string;
   private readerNumber: string;
@@ -19,24 +18,18 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  authenticate(
-    readerNumber: string,
-    password: string
-  ): Observable<{ success: boolean; message: string }> {
+  authenticate(readerNumber: string, password: string): Observable<{ success: boolean; message: string }> {
     const body = new HttpParams()
       .set('readernumber', readerNumber)
-      .set('password', password);
+      .set('password', password)
+      .set('logintype', '0');
     return this.http
       .post(this.loginApiUrl, body.toString(), {
-        headers: new HttpHeaders().set(
-          'Content-Type',
-          'application/x-www-form-urlencoded'
-        ),
+        headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded'),
       })
       .pipe(
         map((response: { token: string; msg: string }) => {
-          if (response.token === 'null' || !response.token)
-            return { success: false, message: response.msg };
+          if (response.token === 'null' || !response.token) return { success: false, message: response.msg };
 
           this.loginToken = response.token;
           this.readerNumber = readerNumber;
