@@ -4,3 +4,6 @@ a {
 a:last-of-type {
   border-bottom: none;
 }
+.mat-list-base {
+  padding-top: 0;
+}

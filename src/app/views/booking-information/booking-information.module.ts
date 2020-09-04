@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 import { BookingInformationComponent } from './booking-information.component';
 import { ConfirmCancelationComponent } from './components/confirm-cancelation/confirm-cancelation.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { ContentLoaderModule } from '@ngneat/content-loader';
 
 @NgModule({
   declarations: [BookingInformationComponent, ConfirmCancelationComponent],
@@ -23,8 +24,10 @@ import { SharedModule } from 'src/app/shared/shared.module';
     MatIconModule,
     RouterModule,
     MatSnackBarModule,
-    SharedModule
+    SharedModule,
+    ContentLoaderModule
   ],
+  providers: [DatePipe],
   exports: [BookingInformationComponent],
 })
 export class BookingInformationModule {}

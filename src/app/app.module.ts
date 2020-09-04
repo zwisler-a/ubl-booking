@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -17,6 +17,9 @@ import { LoginModule } from './views/login/login.module';
 import { LoggingModule } from './service/logging/logging.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { registerLocaleData } from '@angular/common';
+import localeDe from '@angular/common/locales/de';
+registerLocaleData(localeDe)
 
 @NgModule({
   declarations: [AppComponent],
@@ -37,7 +40,7 @@ import { environment } from '../environments/environment';
     HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.featureFlags.serviceWorker }),
   ],
-  providers: [AuthService, { provide: MAT_DATE_LOCALE, useValue: 'de-DE' }],
+  providers: [AuthService, { provide: MAT_DATE_LOCALE, useValue: 'de-DE' }, {provide: LOCALE_ID, useValue: 'de-DE' }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

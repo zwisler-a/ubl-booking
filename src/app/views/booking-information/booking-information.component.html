@@ -1,7 +1,7 @@
 <button mat-button class="back-button" [routerLink]="bookingListRoute">
   <mat-icon>close</mat-icon>
 </button>
-<table *ngIf="booking$ | async as booking">
+<table *ngIf="booking$ | async as booking; else loading">
   <!--  <tr>
     <td colspan="2">
       Die Bestätigungsmail wurde an "{{ booking.email }}" gesendet
@@ -10,24 +10,20 @@
   <br />
   <tr>
     <td>Arbeitsplatz:</td>
-    <td>{{ booking.workspaceId }}</td>
+    <td>{{ booking.id }}</td>
   </tr>
   <br />
   <tr>
     <td>Standort:</td>
-    <td>{{ booking.config.institution }}</td>
-  </tr>
-  <tr>
-    <td>Bereich:</td>
-    <td>{{ booking.config.area | areaSanitation }} Platz {{ booking.workspaceId }}</td>
+    <td>{{ booking.institution }}</td>
   </tr>
   <tr>
     <td>Zeit:</td>
-    <td>{{ booking.config.from_time }} - {{ booking.config.until_time }}</td>
+    <td>{{ booking.start | date: "HH:mm" }} - {{ booking.end | date: "HH:mm" }}</td>
   </tr>
   <tr>
     <td>Tag:</td>
-    <td>{{ booking.config.from_date | dayString }}</td>
+    <td>{{ booking.start | date: "longDate" }}</td>
   </tr>
   <br />
   <tr>
@@ -38,13 +34,14 @@
   <tr>
     <td colspan="2">
       <div fxLayout="row" fxLayoutAlign="end center">
-        <app-loading-button
-          (click)="cancelBooking(booking.bookingCode)"
-          [loading]="cancelationInProgress"
-        >
+        <app-loading-button (click)="cancelBooking(booking)" [loading]="cancelationInProgress">
           Stornieren
         </app-loading-button>
       </div>
     </td>
   </tr>
 </table>
+
+<ng-template #loading>
+  <bullet-list-content-loader></bullet-list-content-loader>
+</ng-template>

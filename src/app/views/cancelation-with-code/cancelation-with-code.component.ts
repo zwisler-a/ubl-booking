@@ -27,7 +27,7 @@ export class CancelationWithCodeComponent implements OnInit {
   ngOnInit(): void {}
 
   cancel(): void {
-    const id: string = this.cancelationFormGroup.getRawValue().code;
+    /*const id: string = this.cancelationFormGroup.getRawValue().code;
     this.cancelationInProgress = true;
     this.bookingService.cancelBooking(id).subscribe((res) => {
       if (res) {
@@ -37,6 +37,6 @@ export class CancelationWithCodeComponent implements OnInit {
         });
       }
       this.cancelationInProgress = false;
-    });
+    });*/
   }
 }

@@ -1,12 +1,14 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BookingListComponent } from './booking-list.component';
-import { MatListModule } from '@angular/material/list';
-import { MatButtonModule } from '@angular/material/button';
-import { RouterModule } from '@angular/router';
-import { MatIconModule } from '@angular/material/icon';
+import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { RouterModule } from '@angular/router';
+import { ContentLoaderModule } from '@ngneat/content-loader';
 import { SharedModule } from 'src/app/shared/shared.module';
+
+import { BookingListComponent } from './booking-list.component';
 
 @NgModule({
   declarations: [BookingListComponent],
@@ -17,7 +19,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     RouterModule,
     MatIconModule,
     FlexLayoutModule,
-    SharedModule
+    SharedModule,
+    ContentLoaderModule,
   ],
   exports: [BookingListComponent],
 })
