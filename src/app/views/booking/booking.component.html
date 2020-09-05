@@ -19,7 +19,6 @@
   <div [formGroup]="bookingFormGroup" fxLayout="column" fxLayoutGap="0px">
     <app-opening-hours [intervals]="bookingInfo.timeslots.interval"></app-opening-hours>
     <br />
-    <br />
     <app-area-select [control]="bookingFormGroup.get('area')" [areas]="bookingInfo.areas"></app-area-select>
     <app-accessories-select [control]="bookingFormGroup.get('fitting')"></app-accessories-select>
     <app-date-select [control]="bookingFormGroup.get('from_date')"></app-date-select>

@@ -78,6 +78,7 @@ export class BookingService {
           if (res.message !== 'Ihre Buchung wurde gelöscht.') return false;
           return true;
         }),
+        flatMap((result) => this.authService.refreshToken().pipe(map((auth) => result))),
         tap(() => this.updateBookings$.next()),
         catchError((err) => of(false))
       );
