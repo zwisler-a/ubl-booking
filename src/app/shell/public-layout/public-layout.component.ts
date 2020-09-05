@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-public-layout',
@@ -8,6 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class PublicLayoutComponent implements OnInit {
   width: number;
+  version = environment.version;
   constructor(private activatedRoute: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
