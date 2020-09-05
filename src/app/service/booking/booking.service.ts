@@ -1,8 +1,8 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Observable, of, BehaviorSubject } from 'rxjs';
-import { catchError, flatMap, map, shareReplay } from 'rxjs/operators';
+import { Observable, of, BehaviorSubject, Subject } from 'rxjs';
+import { catchError, flatMap, map, shareReplay, switchMap, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
 import { BookingConfig } from '../../types/booking-config.type';
@@ -19,7 +19,8 @@ export class BookingService {
   private readonly bookingsApi = environment.api.basePath + environment.api.bookings;
   private readonly stornoApi = environment.api.basePath + environment.api.strono;
 
-  private readonly bookingCache$ = new BehaviorSubject(null);
+  private updateBookings$ = new BehaviorSubject<void>(null);
+  private bookingCache$: Observable<Booking[]>;
 
   constructor(
     private http: HttpClient,
@@ -54,7 +55,8 @@ export class BookingService {
           return result;
         }),
         this.errorService.catchBookingError(),
-        flatMap((result) => this.authService.refreshToken().pipe(map((auth) => result)))
+        flatMap((result) => this.authService.refreshToken().pipe(map((auth) => result))),
+        tap(() => this.updateBookings$.next())
       );
   }
 
@@ -76,31 +78,38 @@ export class BookingService {
           if (res.message !== 'Ihre Buchung wurde gelöscht.') return false;
           return true;
         }),
+        tap(() => this.updateBookings$.next()),
         catchError((err) => of(false))
       );
   }
 
   getBookings(): Observable<Booking[]> {
-    return this.bookingCache$.pipe(
-      flatMap(() =>
-        this.http
-          .post<{ bookings: Booking[] }>(
-            this.bookingsApi,
-            JSON.stringify({
-              token: this.authService.getAdminToken(),
-              readernumber: this.authService.getReaderNumber(),
-            }),
-            { headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded') }
-          )
-          .pipe(
-            map((res) => res?.bookings ?? []),
-            shareReplay(1)
-          )
-      )
-    );
+    if (!this.bookingCache$) {
+      this.bookingCache$ = this.updateBookings$.pipe(
+        switchMap(() =>
+          this.http
+            .post<{ bookings: Booking[] }>(
+              this.bookingsApi,
+              JSON.stringify({
+                token: this.authService.getAdminToken(),
+                readernumber: this.authService.getReaderNumber(),
+              }),
+              { headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded') }
+            )
+            .pipe(map((res) => res?.bookings ?? []))
+        ),
+        shareReplay(1)
+      );
+    }
+
+    return this.bookingCache$;
   }
 
   getBooking(id: string): Observable<Booking> {
     return this.getBookings().pipe(map((bookings) => bookings.find((booking) => booking.bookingCode === id)));
+  }
+
+  reloadBookings(): void {
+    this.updateBookings$.next();
   }
 }

@@ -11,23 +11,23 @@ import { PrivateLayoutComponent } from './private-layout/private-layout.componen
 import { UserPopupDirective } from './private-layout/user-popup-directive/user-popup.directive';
 import { UserPopupComponent } from './private-layout/user-popup/user-popup.component';
 import { PublicLayoutComponent } from './public-layout/public-layout.component';
+import { SwVersionService } from './sw-version.service';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { HammerModule } from '@angular/platform-browser';
 
 @NgModule({
-  declarations: [
-    PrivateLayoutComponent,
-    PublicLayoutComponent,
-    UserPopupComponent,
-    UserPopupDirective,
-  ],
+  declarations: [PrivateLayoutComponent, PublicLayoutComponent, UserPopupComponent, UserPopupDirective],
   imports: [
     CommonModule,
+    MatSnackBarModule,
     MatCardModule,
     FlexLayoutModule,
     MatIconModule,
     OverlayModule,
     MatButtonModule,
-    RouterModule
+    RouterModule,
   ],
+  providers: [SwVersionService],
   exports: [PrivateLayoutComponent, PublicLayoutComponent],
 })
 export class ShellModule {}

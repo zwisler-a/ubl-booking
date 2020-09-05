@@ -84,3 +84,7 @@
 .app-title:focus {
   outline: none;
 }
+.wrapper {
+  z-index: 500;
+  position: relative;
+}

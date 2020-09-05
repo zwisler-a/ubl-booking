@@ -1,13 +1,16 @@
-<div fxLayout="column" fxLayoutAlign="start stretch" fxFlexFill>
+<div
+  fxLayout="column"
+  fxLayoutAlign="start stretch"
+  fxFlexFill
+  (swipeRight)="swipeRight()"
+  (swipeLeft)="swipeLeft()"
+  class="wrapper"
+>
   <nav fxLayout="row" fxLayoutAlign="end" class="navigation">
     <div class="titlebar" fxFlex="1 1 auto" fxLayoutAlign="start center">
       <span class="app-title" [routerLink]="routes.BOOKING">Buchungssystem</span>
     </div>
-    <div
-      class="navigation-item"
-      routerLinkActive="active"
-      [routerLink]="routes.BOOKING"
-    >
+    <div class="navigation-item" routerLinkActive="active" [routerLink]="routes.BOOKING">
       <span>Buchen</span>
       <mat-icon>book</mat-icon>
     </div>
@@ -27,7 +30,7 @@
   </nav>
   <main fxFlex="1 1 auto" class="flex-shell">
     <h1 fxHide.lt-sm *ngIf="title" class="title" fxLayout="row" fxLayoutAlign="start center">
-      <ng-container *ngFor="let titlePart of title; let i = index" >
+      <ng-container *ngFor="let titlePart of title; let i = index">
         <mat-icon [@rotateInOut]>chevron_right</mat-icon>
         <span [@rotateInOut] (click)="navigateUp(title.length - i - 1)">{{ titlePart }}</span>
       </ng-container>
@@ -37,17 +40,11 @@
     </mat-card>
   </main>
   <footer class="footer" fxLayout="row" fxLayoutAlign="start center">
-    <a href="https://www.ub.uni-leipzig.de/sitemaprechtliches/impressum/"
-      >Impressum</a
-    >
-    <a href="https://www.ub.uni-leipzig.de/sitemaprechtliches/privacy/"
-      >Datenschutz</a
-    >
-    <a href="https://www.ub.uni-leipzig.de/sitemaprechtliches/kontakt/"
-      >Kontakt</a
-    >
+    <a href="https://www.ub.uni-leipzig.de/sitemaprechtliches/impressum/">Impressum</a>
+    <a href="https://www.ub.uni-leipzig.de/sitemaprechtliches/privacy/">Datenschutz</a>
+    <a href="https://www.ub.uni-leipzig.de/sitemaprechtliches/kontakt/">Kontakt</a>
 
-    <span fxFlex="1 1 auto"></span> <span>{{ version }}</span>
+    <span fxFlex="1 1 auto"></span> <span (click)="checkVersion()">{{ version }}</span>
   </footer>
 </div>
 <div class="footer-image"></div>

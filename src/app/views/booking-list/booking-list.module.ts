@@ -9,6 +9,7 @@ import { ContentLoaderModule } from '@ngneat/content-loader';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 import { BookingListComponent } from './booking-list.component';
+import { HammerModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [BookingListComponent],
@@ -20,7 +21,7 @@ import { BookingListComponent } from './booking-list.component';
     MatIconModule,
     FlexLayoutModule,
     SharedModule,
-    ContentLoaderModule,
+    ContentLoaderModule
   ],
   exports: [BookingListComponent],
 })

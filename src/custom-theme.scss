@@ -35,6 +35,9 @@ $ubl-booking-theme: mat-light-theme(
 @include angular-material-theme($ubl-booking-theme);
 
 
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500&amp;display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
 // Material design overwrites to make the whole thing not feel like a form-factor app
 .app {
   .mat-button.mat-calendar-period-button {

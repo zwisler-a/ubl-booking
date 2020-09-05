@@ -1,23 +1,26 @@
-<mat-list role="list" *ngIf="bookings$ | async as bookings; else loading">
-  <ng-container *ngIf="bookings.length; else noBookings">
-    <a
-      mat-list-item
-      *ngFor="let booking of bookings"
-      role="listitem"
-      [routerLink]="getLink(booking.bookingCode)"
-    >
-      <div fxLayout="row" fxFlex fxLayoutGap="16px" fxLayoutAlign="start center" style="width: 100%">
-        <span fxFlex="1 1 auto" style="overflow: hidden; white-space: break-spaces">
-          <span style="white-space: nowrap; overflow: hidden">{{ booking.institution }}: </span>
-          <span style="white-space: nowrap"> Platz {{ booking.id }} </span>
-        </span>
-        <span fxFlex="0 0 auto">
-          {{ booking.start | date: "HH:mm" }} - {{ booking.end | date: "HH:mm" }}
-        </span>
-        <span fxFlex="0 0 auto"> {{ booking.start | date: "shortDate" }}</span>
-      </div>
-    </a>
-  </ng-container>
-</mat-list>
+<div (swipeDown)="reload()">
+  <mat-list role="list" *ngIf="bookings$ | async as bookings; else loading">
+    <ng-container *ngIf="bookings.length; else noBookings">
+      <a
+        mat-list-item
+        *ngFor="let booking of bookings"
+        role="listitem"
+        [routerLink]="getLink(booking.bookingCode)"
+      >
+        <div fxLayout="row" fxFlex fxLayoutGap="16px" fxLayoutAlign="start center" style="width: 100%">
+          <span fxFlex="1 1 auto" style="overflow: hidden; white-space: break-spaces">
+            <span style="white-space: nowrap; overflow: hidden">{{ booking.institution }}: </span>
+            <span style="white-space: nowrap"> Platz {{ booking.id }} </span>
+          </span>
+          <span fxFlex="0 0 auto"> {{ booking.start | date: "dd MMM" }}</span>
+          <span fxFlex="0 0 auto">
+            {{ booking.start | date: "HH:mm" }} - {{ booking.end | date: "HH:mm" }}
+          </span>
+
+        </div>
+      </a>
+    </ng-container>
+  </mat-list>
+</div>
 <ng-template #noBookings><span>Keine Buchungen gefunden</span></ng-template>
 <ng-template #loading> <bullet-list-content-loader></bullet-list-content-loader> </ng-template>
