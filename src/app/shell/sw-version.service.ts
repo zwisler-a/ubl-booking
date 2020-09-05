@@ -17,8 +17,9 @@ export class SwVersionService {
       this.snackbar
         .open('Eine neue Version ist Verfügbar', 'Aktualisieren', { duration: -1 })
         .onAction()
-        .subscribe(() => {
-          this.swUpdate.activateUpdate();
+        .subscribe(async () => {
+          await this.swUpdate.activateUpdate();
+          window.location.reload();
         });
     });
   }

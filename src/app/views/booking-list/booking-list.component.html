@@ -21,6 +21,9 @@
       </a>
     </ng-container>
   </mat-list>
+  <div fxLayoutAlign="end center">
+    <button mat-button (click)="reload()">Aktualisieren</button>
+  </div>
 </div>
 <ng-template #noBookings><span>Keine Buchungen gefunden</span></ng-template>
 <ng-template #loading> <bullet-list-content-loader></bullet-list-content-loader> </ng-template>

@@ -97,7 +97,12 @@ export class BookingService {
               }),
               { headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded') }
             )
-            .pipe(map((res) => res?.bookings ?? []))
+            .pipe(
+              flatMap((res) => {
+                if (res && res.bookings) return of(res.bookings);
+                return this.authService.refreshToken().pipe(map(() => []));
+              })
+            )
         ),
         shareReplay(1)
       );

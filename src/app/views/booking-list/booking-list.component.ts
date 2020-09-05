@@ -25,7 +25,7 @@ export class BookingListComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  reload():void{
+  reload(): void {
     this.bookingService.reloadBookings();
   }
 }
