@@ -8,7 +8,7 @@ export const environment = {
     institution: '/booking/institutions',
     areas: '/booking/areas',
     timeslots: '/booking/timeslots',
-    booking: '/booking/booking',
+    booking: '../booking-internal/booking/booking',
     strono: '/booking/storno',
     workload: '/booking/workload',
     bookings: '/booking/admin',
