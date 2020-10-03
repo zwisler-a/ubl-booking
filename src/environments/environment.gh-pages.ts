@@ -2,7 +2,7 @@ declare let require;
 export const environment = {
   production: true,
   api: {
-    basePath: 'https://demo.zwisler.dev',
+    basePath: 'https://demo.zwisler.dev/api',
     login: '/api/booking/login',
     logout: '/api/booking/logout',
     institution: '/api/booking/institutions',
