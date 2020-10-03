@@ -1,0 +1,110 @@
+{
+  "configVersion": 1,
+  "timestamp": 1601751371984,
+  "index": "/ubl-booking/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/ubl-booking/5.50231fdb604f26935b74.js",
+        "/ubl-booking/6.a26c23922c1639c55d29.js",
+        "/ubl-booking/common.08903e4a03eaf2433a6a.js",
+        "/ubl-booking/favicon.ico",
+        "/ubl-booking/index.html",
+        "/ubl-booking/main.d6b4c744a4584710e2f4.js",
+        "/ubl-booking/manifest.webmanifest",
+        "/ubl-booking/polyfills.df8df8924122ea727a19.js",
+        "/ubl-booking/runtime.400787b0eefe85a87ab7.js",
+        "/ubl-booking/styles.9eda9bf895118b0fc9bc.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/ubl-booking/assets/footer.svg",
+        "/ubl-booking/assets/icons/android-icon-192x192.png",
+        "/ubl-booking/assets/icons/apple-icon-114x114.png",
+        "/ubl-booking/assets/icons/apple-icon-120x120.png",
+        "/ubl-booking/assets/icons/apple-icon-144x144.png",
+        "/ubl-booking/assets/icons/apple-icon-152x152.png",
+        "/ubl-booking/assets/icons/apple-icon-180x180.png",
+        "/ubl-booking/assets/icons/apple-icon-57x57.png",
+        "/ubl-booking/assets/icons/apple-icon-60x60.png",
+        "/ubl-booking/assets/icons/apple-icon-72x72.png",
+        "/ubl-booking/assets/icons/apple-icon-76x76.png",
+        "/ubl-booking/assets/icons/favicon-16x16.png",
+        "/ubl-booking/assets/icons/favicon-32x32.png",
+        "/ubl-booking/assets/icons/favicon-96x96.png",
+        "/ubl-booking/assets/icons/icon-512x512.png",
+        "/ubl-booking/assets/login_background.jpg",
+        "/ubl-booking/assets/login_border.svg",
+        "/ubl-booking/footer.938be9cd508ee11bb3c4.svg",
+        "/ubl-booking/login_background.07bf81136e45da5091f6.jpg",
+        "/ubl-booking/login_border.ddc5c0ec355d7c8ece72.svg"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/ubl-booking/5.50231fdb604f26935b74.js": "63a25fecf2c367141de887f2f29973d08d0dcea9",
+    "/ubl-booking/6.a26c23922c1639c55d29.js": "d23cb54e5ab4136e9fdaf691cc0964b7be135444",
+    "/ubl-booking/assets/footer.svg": "055bddbe978a6806eca8750a4c41998e430f5dd2",
+    "/ubl-booking/assets/icons/android-icon-192x192.png": "3c150be64103995917463811b62f13f244428d51",
+    "/ubl-booking/assets/icons/apple-icon-114x114.png": "8e983116a6241df77f0bb97051a4a63d3ae7a776",
+    "/ubl-booking/assets/icons/apple-icon-120x120.png": "7dd29d4b98cf97006ba15b70f0bb45e2fe83aa94",
+    "/ubl-booking/assets/icons/apple-icon-144x144.png": "48deb329f11f576b578d8ec8054204cb006bc54f",
+    "/ubl-booking/assets/icons/apple-icon-152x152.png": "913e1dfd1d519c984c2726ae82e61698f02590a6",
+    "/ubl-booking/assets/icons/apple-icon-180x180.png": "1da9b15cba19c73012de13761791e39432d41be5",
+    "/ubl-booking/assets/icons/apple-icon-57x57.png": "5e4c888b95a2740692a0649e1022023f9f001a4f",
+    "/ubl-booking/assets/icons/apple-icon-60x60.png": "217527a050c3901e901a27268898cd3348142e74",
+    "/ubl-booking/assets/icons/apple-icon-72x72.png": "18d4d88093491dbda7c62baead939302101a69e6",
+    "/ubl-booking/assets/icons/apple-icon-76x76.png": "fe54f5a0052c46a0d3b58be2d246dd465332d9c9",
+    "/ubl-booking/assets/icons/favicon-16x16.png": "99f67178588c8fbdc864f8010bb7d26ccf6eb81d",
+    "/ubl-booking/assets/icons/favicon-32x32.png": "ccc41a50148bfa011dd767594389ffc1bf51c0ce",
+    "/ubl-booking/assets/icons/favicon-96x96.png": "37274606f6086fd464e512dd1e31f146b02b9b64",
+    "/ubl-booking/assets/icons/icon-512x512.png": "8872c1f6a5a00efbe597815b769b943dc6af2ba0",
+    "/ubl-booking/assets/login_background.jpg": "bde97d804caf3766e2937a766b2000e658e40318",
+    "/ubl-booking/assets/login_border.svg": "2cb9542d22b82e723149d8a8762a467bd7ad13a3",
+    "/ubl-booking/common.08903e4a03eaf2433a6a.js": "43d2ab09427b53a6275130b49822696f4789ab25",
+    "/ubl-booking/favicon.ico": "ccc41a50148bfa011dd767594389ffc1bf51c0ce",
+    "/ubl-booking/footer.938be9cd508ee11bb3c4.svg": "055bddbe978a6806eca8750a4c41998e430f5dd2",
+    "/ubl-booking/index.html": "2d36b78dc0899d1ad4f65c18ad7592b11c831410",
+    "/ubl-booking/login_background.07bf81136e45da5091f6.jpg": "bde97d804caf3766e2937a766b2000e658e40318",
+    "/ubl-booking/login_border.ddc5c0ec355d7c8ece72.svg": "2cb9542d22b82e723149d8a8762a467bd7ad13a3",
+    "/ubl-booking/main.d6b4c744a4584710e2f4.js": "6956a2283ff3da631fb63796af7da8fe3b538401",
+    "/ubl-booking/manifest.webmanifest": "67cc4a7a3b382390a6aa1dd21953eb2617217910",
+    "/ubl-booking/polyfills.df8df8924122ea727a19.js": "99facf9bee8da793cc8401108fb1e1fa7c6c4782",
+    "/ubl-booking/runtime.400787b0eefe85a87ab7.js": "5a69caeb51cea0722b736ba96e5c0c16a350da20",
+    "/ubl-booking/styles.9eda9bf895118b0fc9bc.css": "18817d365a709d1db6bfd13fc185bb1dcc96cffc"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}
