@@ -3,13 +3,11 @@ import { HttpClientModule } from '@angular/common/http';
 import localeDe from '@angular/common/locales/de';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
-import { BrowserModule, HAMMER_GESTURE_CONFIG, HammerModule } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
-
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
-import { HammerConfig } from './hammer-conifg';
 import { RoutingModule } from './routing/routing.module';
 import { AuthService } from './service/auth/auth.service';
 import { LoggingModule } from './service/logging/logging.module';
@@ -40,14 +38,14 @@ registerLocaleData(localeDe);
     LoggingModule,
     RoutingModule,
     HttpClientModule,
-    HammerModule,
+    // HammerModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.featureFlags.serviceWorker }),
   ],
   providers: [
     AuthService,
     { provide: MAT_DATE_LOCALE, useValue: 'de-DE' },
     { provide: LOCALE_ID, useValue: 'de-DE' },
-    { provide: HAMMER_GESTURE_CONFIG, useClass: HammerConfig },
+    // { provide: HAMMER_GESTURE_CONFIG, useClass: HammerConfig },
   ],
   bootstrap: [AppComponent],
 })
