@@ -10,23 +10,19 @@ import { AuthGuard } from '../service/auth/auth-guard.guard';
   declarations: [],
   imports: [
     RouterModule.forRoot([
-      {
+    {
         path: ROUTE.LOGIN,
         component: PublicLayoutComponent,
-        loadChildren: () =>
-          import('./public-routing.module').then((m) => m.PublicRoutingModule),
-      },
-      {
+        loadChildren: () => import('./public-routing.module').then((m) => m.PublicRoutingModule),
+    },
+    {
         path: '',
         component: PrivateLayoutComponent,
         canActivate: [AuthGuard],
-        loadChildren: () =>
-          import('./private-routing.module').then(
-            (m) => m.PrivateRoutingModule
-          ),
-      },
-      { path: '**', redirectTo: 'login' },
-    ]),
+        loadChildren: () => import('./private-routing.module').then((m) => m.PrivateRoutingModule),
+    },
+    { path: '**', redirectTo: 'login' },
+], { relativeLinkResolution: 'legacy' }),
   ],
   exports: [RouterModule],
 })

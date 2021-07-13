@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { PrivateLayoutComponent } from './private-layout.component';
 
@@ -6,7 +6,7 @@ describe('ShellComponent', () => {
   let component: PrivateLayoutComponent;
   let fixture: ComponentFixture<PrivateLayoutComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ PrivateLayoutComponent ]
     })
