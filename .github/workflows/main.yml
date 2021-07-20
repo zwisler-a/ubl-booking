@@ -1,22 +1,19 @@
-name: CI
-
+name: Build and Deploy
 on: [push]
-
 jobs:
-  build:
-
-    runs-on: ubuntu-18.04
+  build-and-deploy:
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js 8.15.1
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
-    - name: Build and Deploy
-      uses: JamesIves/github-pages-deploy-action@releases/v2
-      env:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        BASE_BRANCH: master
-        BRANCH: gh-pages
-        FOLDER: dist/ubl-booking
-        BUILD_SCRIPT: npm install && npm run gh-pages
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2.3.1
+
+      - name: Install and Build 
+        run: |
+          npm install
+          npm run gh-pages
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: dist/ubl-booking # The folder the action should deploy.
