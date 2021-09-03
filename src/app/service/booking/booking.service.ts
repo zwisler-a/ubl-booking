@@ -11,6 +11,18 @@ import { Booking } from '../../types/booking.type';
 import { AuthService } from '../auth/auth.service';
 import { ErrorService } from '../error/error.service';
 
+// Included via angular.json
+declare const ics: () => {
+  addEvent: (
+    subject: string,
+    description: string,
+    location: string,
+    begin: Date | number,
+    end: Date | number
+  ) => void;
+  download: () => void;
+};
+
 @Injectable({
   providedIn: 'root',
 })
@@ -117,5 +129,17 @@ export class BookingService {
 
   reloadBookings(): void {
     this.updateBookings$.next();
+  }
+
+  createICalDownload(booking: Booking): void {
+    const cal = ics();
+    cal.addEvent(
+      `Arbeitsplatzbuchung "${booking.institution}"`,
+      `Buchungscode: ${booking.bookingCode}`,
+      `${booking.institution}`,
+      booking.start,
+      booking.end
+    );
+    cal.download();
   }
 }

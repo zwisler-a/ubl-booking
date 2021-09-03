@@ -53,4 +53,8 @@ export class BookingInformationComponent implements OnInit {
         }
       });
   }
+
+  downloadICal(booking: Booking): void {
+    this.bookingService.createICalDownload(booking);
+  }
 }
