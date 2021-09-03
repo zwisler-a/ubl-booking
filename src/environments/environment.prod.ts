@@ -14,7 +14,7 @@ export const environment = {
     bookings: '/booking/admin',
   },
   version: require('../../package.json').version,
-
+  serviceWorker: 'sw-master.js',
   featureFlags: {
     rememberDisclaimerAcception: true,
     requireLogin: true,

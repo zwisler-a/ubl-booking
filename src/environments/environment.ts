@@ -14,12 +14,12 @@ export const environment = {
     bookings: '/booking/admin',
   },
   version: require('../../package.json').version,
-
+  serviceWorker: 'sw-bg-sync.js',
   featureFlags: {
-    rememberDisclaimerAcception: false,
-    requireLogin: false,
+    rememberDisclaimerAcception: true,
+    requireLogin: true,
     bookingsManagement: true,
-    serviceWorker: false
+    serviceWorker: true
   },
 };
 (window as any).package = require('../../package.json');

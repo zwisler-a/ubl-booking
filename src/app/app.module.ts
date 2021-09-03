@@ -39,7 +39,7 @@ registerLocaleData(localeDe);
     RoutingModule,
     HttpClientModule,
     // HammerModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.featureFlags.serviceWorker }),
+    ServiceWorkerModule.register(environment.serviceWorker, { enabled: environment.featureFlags.serviceWorker }),
   ],
   providers: [
     AuthService,

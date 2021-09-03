@@ -118,4 +118,31 @@ export class BookingService {
   reloadBookings(): void {
     this.updateBookings$.next();
   }
+
+  async scan(config: BookingConfig) {
+    const status = await navigator.permissions.query({
+      name: 'periodic-background-sync',
+    } as any);
+    if (status.state === 'granted') {
+      // Periodic background sync can be used.
+    } else {
+      console.error("asd")
+      return; // Periodic background sync cannot be used.
+    }
+    const registration: any = await navigator.serviceWorker.ready;
+    if ('periodicSync' in registration) {
+      try {
+        await registration.periodicSync.register('POLL_TIMESLOT', {
+          // An interval of one day.
+          minInterval: 1000,
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    navigator.serviceWorker.ready.then((reg) => {
+      navigator.serviceWorker.controller.postMessage({ type: 'POLL_TIMESLOT', data: config });
+    });
+  }
 }

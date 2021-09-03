@@ -23,6 +23,8 @@ import { TimespanSelectComponent } from './components/timespan-select/timespan-s
 import { InstitutionSelectComponent } from './components/institution-select/institution-select.component';
 import { CapacityViewComponent } from './components/capacity-view/capacity-view.component';
 import { CapacityTimePipe } from './components/capacity-view/capacity-time.pipe';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,7 @@ import { CapacityTimePipe } from './components/capacity-view/capacity-time.pipe'
     TimespanSelectComponent,
     InstitutionSelectComponent,
     CapacityViewComponent,
-    CapacityTimePipe,
+    CapacityTimePipe
   ],
   imports: [
     SharedModule,

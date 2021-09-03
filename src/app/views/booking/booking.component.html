@@ -1,4 +1,4 @@
-<form class="booking-form" fxLayout="column" [formGroup]="bookingFormGroup" >
+<form class="booking-form" fxLayout="column" [formGroup]="bookingFormGroup">
   <app-institution-select
     [institutions]="institutions$ | async"
     formControlName="institution"
@@ -22,7 +22,8 @@
     <app-area-select [control]="bookingFormGroup.get('area')" [areas]="bookingInfo.areas"></app-area-select>
     <app-accessories-select [control]="bookingFormGroup.get('fitting')"></app-accessories-select>
     <app-date-select [control]="bookingFormGroup.get('from_date')"></app-date-select>
-    <app-capacity-view *ngIf="capacity$ | async as capacity"
+    <app-capacity-view
+      *ngIf="capacity$ | async as capacity"
       [capacity]="capacity[capacityForDay]"
       [startHour]="capacity['startHour']"
       [title]="'Auslastung (' + (bookingFormGroup.get('from_date').value | date: 'dd.MM') + ')'"
@@ -31,7 +32,13 @@
       [controlFrom]="bookingFormGroup.get('from_time')"
       [controlTo]="bookingFormGroup.get('until_time')"
     ></app-timespan-select>
-    <div fxLayout="row" fxLayoutAlign="end center">
+    <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="end center">
+      <app-loading-button
+        (click)="bookingFormGroup.markAllAsTouched(); bookingFormGroup.valid && scan()"
+        [loading]="false"
+      >
+        Scan
+      </app-loading-button>
       <app-loading-button
         (click)="bookingFormGroup.markAllAsTouched(); bookingFormGroup.valid && book()"
         [loading]="inBookingProcess"

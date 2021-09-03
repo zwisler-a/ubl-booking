@@ -105,9 +105,10 @@ export class BookingComponent implements OnInit {
   }
 
   private convertDate(date: Date): string {
-    return `${date.getFullYear()}-${(date.getMonth() + 1)
+    return `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date
+      .getDate()
       .toString()
-      .padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
+      .padStart(2, '0')}`;
   }
 
   get isInstitutionSelected(): boolean {
@@ -120,5 +121,28 @@ export class BookingComponent implements OnInit {
     const diffTime = selected.getTime() - curr.getTime();
     const diffDays = diffTime / (1000 * 3600 * 24);
     this.capacityForDay = Math.ceil(diffDays);
+  }
+
+  async scan() {
+    const bookingConfig = this.bookingFormGroup.getRawValue();
+    this.prefService.setPreferedSeat(bookingConfig.institution, this.bookingFormGroup);
+
+    this.inBookingProcess = true;
+    const bookingSuccess = (result) => {
+      const url = '/' + ROUTE.BOOKING_INFO.replace(':id', result.bookingCode);
+      this.router.navigateByUrl(url);
+    };
+    const bookingFailure = (err) => {
+      this.inBookingProcess = false;
+    };
+
+    this.bookingService.scan({
+      area: bookingConfig.area,
+      from_date: this.convertDate(bookingConfig.from_date),
+      from_time: bookingConfig.from_time,
+      until_time: bookingConfig.until_time,
+      institution: bookingConfig.institution,
+      fitting: bookingConfig.fitting,
+    });
   }
 }
