@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1626764375384,
+  "timestamp": 1630700467920,
   "index": "/ubl-booking/index.html",
   "assetGroups": [
     {
@@ -12,14 +12,15 @@
       },
       "urls": [
         "/ubl-booking/515.142d7531516aa5d203c1.js",
-        "/ubl-booking/774.855146ae4f8e085a94a3.js",
+        "/ubl-booking/774.2cb31fcf968902a1ab0e.js",
         "/ubl-booking/common.edba892c4641f7944071.js",
         "/ubl-booking/favicon.ico",
         "/ubl-booking/index.html",
         "/ubl-booking/main.922dce1f7c886a86ff98.js",
         "/ubl-booking/manifest.webmanifest",
         "/ubl-booking/polyfills.73d2a69a3bcc43dc2983.js",
-        "/ubl-booking/runtime.45a30804cd4a32b4d453.js",
+        "/ubl-booking/runtime.d1e58d2aaefa8cbdd261.js",
+        "/ubl-booking/scripts.098f5d2fb538e1737b37.js",
         "/ubl-booking/styles.6792b2939999a6123aa2.css"
       ],
       "patterns": []
@@ -47,6 +48,7 @@
         "/ubl-booking/assets/icons/favicon-32x32.png",
         "/ubl-booking/assets/icons/favicon-96x96.png",
         "/ubl-booking/assets/icons/icon-512x512.png",
+        "/ubl-booking/assets/ics.js",
         "/ubl-booking/assets/login_background.jpg",
         "/ubl-booking/assets/login_border.svg",
         "/ubl-booking/footer.938be9cd508ee11bb3c4.svg",
@@ -59,7 +61,7 @@
   "dataGroups": [],
   "hashTable": {
     "/ubl-booking/515.142d7531516aa5d203c1.js": "3c0e69416b13d9e3bb6a0502f021dc47a53f0001",
-    "/ubl-booking/774.855146ae4f8e085a94a3.js": "dadf7406396a39f8c29900ac30cb287f50f7719f",
+    "/ubl-booking/774.2cb31fcf968902a1ab0e.js": "3ffa7d46143ef17e55e6babd1fb00edfaab5a081",
     "/ubl-booking/assets/footer.svg": "055bddbe978a6806eca8750a4c41998e430f5dd2",
     "/ubl-booking/assets/icons/android-icon-192x192.png": "3c150be64103995917463811b62f13f244428d51",
     "/ubl-booking/assets/icons/apple-icon-114x114.png": "8e983116a6241df77f0bb97051a4a63d3ae7a776",
@@ -75,18 +77,20 @@
     "/ubl-booking/assets/icons/favicon-32x32.png": "ccc41a50148bfa011dd767594389ffc1bf51c0ce",
     "/ubl-booking/assets/icons/favicon-96x96.png": "37274606f6086fd464e512dd1e31f146b02b9b64",
     "/ubl-booking/assets/icons/icon-512x512.png": "8872c1f6a5a00efbe597815b769b943dc6af2ba0",
+    "/ubl-booking/assets/ics.js": "092af254505e9b04f3f5e42a51a16c227dcf838b",
     "/ubl-booking/assets/login_background.jpg": "bde97d804caf3766e2937a766b2000e658e40318",
     "/ubl-booking/assets/login_border.svg": "2cb9542d22b82e723149d8a8762a467bd7ad13a3",
     "/ubl-booking/common.edba892c4641f7944071.js": "d8dc28744e18e08a38d5c617334d49d83e1526b8",
     "/ubl-booking/favicon.ico": "ccc41a50148bfa011dd767594389ffc1bf51c0ce",
     "/ubl-booking/footer.938be9cd508ee11bb3c4.svg": "055bddbe978a6806eca8750a4c41998e430f5dd2",
-    "/ubl-booking/index.html": "d9233db12fa7ac548daa5e0c5a9681271bea10e7",
+    "/ubl-booking/index.html": "e0ba82dd51fd7b2f1a014724e3c3c47371f6242b",
     "/ubl-booking/login_background.07bf81136e45da5091f6.jpg": "bde97d804caf3766e2937a766b2000e658e40318",
     "/ubl-booking/login_border.ddc5c0ec355d7c8ece72.svg": "2cb9542d22b82e723149d8a8762a467bd7ad13a3",
     "/ubl-booking/main.922dce1f7c886a86ff98.js": "bce3a3322a6a43d27fe522fb3120993af194eb51",
     "/ubl-booking/manifest.webmanifest": "67cc4a7a3b382390a6aa1dd21953eb2617217910",
     "/ubl-booking/polyfills.73d2a69a3bcc43dc2983.js": "b8ab9445b7586b3f911bb721c606093ea58a3731",
-    "/ubl-booking/runtime.45a30804cd4a32b4d453.js": "0fc5a1c63daa65fcd61edf9fc192459e09214a62",
+    "/ubl-booking/runtime.d1e58d2aaefa8cbdd261.js": "7263b2d6e38a435eea6544e939c4e1d8b38b1f87",
+    "/ubl-booking/scripts.098f5d2fb538e1737b37.js": "3f23142832f7e7e65461fcbd142f25fa728c36c1",
     "/ubl-booking/styles.6792b2939999a6123aa2.css": "161cd9585223392ff9555afe99200b5f94d98ef1"
   },
   "navigationUrls": [
