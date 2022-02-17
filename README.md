@@ -1,10 +1,16 @@
-# UI Buchungssystem [Demo](https://zwisler-a.github.io/ubl-booking/)
+<br />
 
+<div align="center">
+ <img  src="/src/assets/icons/apple-icon-114x114.png" />
+  <p align="center">
+    Buchungssystem UI
+  </p>
+</div>
+<br />
 
+# UBL-Booking
 
-| Desktop        | Mobile           |
-| ------------- |:-------------:|
-| ![_](./docs/desktop_login.png)    | ![_](./docs/mobile_login.png)   |
-| ![_](./docs/desktop_booking.png)  | ![_](./docs/mobile_booking.png) |
-| ![_](./docs/desktop_booked.png)   | ![_](./docs/mobile_booked.png)  |
-
+<img  src="/preview.png" style="border-radius:50%" />
+<div align="center">
+ PWA - Typescript - Angular
+</div>
